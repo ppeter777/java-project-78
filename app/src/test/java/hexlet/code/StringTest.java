@@ -1,27 +1,44 @@
 package hexlet.code;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class StringTest {
 
-    private static Validator vNumber;
     private static Validator vString;
-    private static NumberSchema nSchema;
     private static StringSchema sSchema;
 
     @BeforeAll
     public static void beforeAll() throws Exception {
-        vNumber = new Validator();
         vString = new Validator();
-        nSchema = vNumber.number();
-        sSchema = vString.string();
+
     }
     @Test
     public void emptyTest() throws Exception {
+        sSchema = vString.string();
         assertTrue(sSchema.isValid(""));
+        assertTrue(sSchema.isValid(null));
+    }
+    @Test
+    public void requiredTest() throws Exception {
+        sSchema = vString.string();
+        sSchema.required();
+        assertFalse(sSchema.isValid(""));
+        assertFalse(sSchema.isValid(null));
+        assertFalse(sSchema.isValid(5));
+        assertTrue(sSchema.isValid("what does the fox say"));
+        assertTrue(sSchema.isValid("hexlet"));
+    }
+    @Test
+    public void containsTest() throws Exception {
+        sSchema = vString.string();
+        sSchema.required();
+        assertTrue(sSchema.isValid("what does the fox say"));
+        assertTrue(sSchema.contains("wh").isValid("what does the fox say"));
+        assertTrue(sSchema.contains("what").isValid("what does the fox say"));
+        assertFalse(sSchema.contains("whatthe").isValid("what does the fox say"));
+        assertFalse(sSchema.isValid("what does the fox say"));
     }
 }
