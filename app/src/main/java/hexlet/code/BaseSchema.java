@@ -1,7 +1,6 @@
 package hexlet.code;
 
 public class BaseSchema {
-
     boolean required;
     int minLength;
     String contains;
@@ -12,15 +11,15 @@ public class BaseSchema {
         this.required = true;
         return BaseSchema.this;
     }
-    public BaseSchema minLength (int length) {
+    public BaseSchema minLength(int length) {
         this.minLength = length;
         return BaseSchema.this;
     }
-    public BaseSchema contains (String substring) {
+    public BaseSchema contains(String substring) {
         this.contains = substring;
         return BaseSchema.this;
     }
-    public boolean isValid (Object input) {
+    public boolean isValid(Object input) {
         if (input == null || input.toString().isEmpty()) {
             return !required;
         } else if (!(input instanceof String)) {

@@ -21,14 +21,16 @@ public class NumberSchema extends BaseSchema {
         this.rangeMax = rangeMax;
         return NumberSchema.this;
     }
-    public boolean isValid (Object input) {
+    public boolean isValid(Object input) {
         if (input == null) {
             return !required;
         } else if (!(input instanceof Integer)) {
             return false;
         } else if (range && (rangeMin > (int) input || rangeMax < (int) input)) {
             return false;
-        } else return !positive || (int) input > 0;
+        } else {
+            return !positive || (int) input > 0;
+        }
     }
 
 }

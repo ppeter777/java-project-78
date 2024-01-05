@@ -4,7 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringTest {
 
@@ -16,7 +17,7 @@ public class StringTest {
         vString = new Validator();
     }
     @BeforeEach
-    public void beforeEach() throws Exception{
+    public void beforeEach() throws Exception {
         sSchema = vString.string();
     }
     @Test
