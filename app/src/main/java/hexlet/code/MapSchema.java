@@ -14,8 +14,8 @@ public class MapSchema extends BaseSchema {
         this.required = true;
         return MapSchema.this;
     }
-    public MapSchema sizeof(int size) {
-        this.size = size;
+    public MapSchema sizeof(int inputSize) {
+        this.size = inputSize;
         sizeCheck = true;
         return MapSchema.this;
     }
@@ -34,8 +34,8 @@ public class MapSchema extends BaseSchema {
         }
         return true;
     }
-    public MapSchema shape(Map<String, BaseSchema> schemas) {
-        this.schemas = schemas;
+    public MapSchema shape(Map<String, BaseSchema> inputSchemas) {
+        this.schemas = inputSchemas;
         return MapSchema.this;
     }
 }

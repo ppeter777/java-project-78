@@ -15,10 +15,10 @@ public class NumberSchema extends BaseSchema {
         this.positive = true;
         return NumberSchema.this;
     }
-    public NumberSchema range(int rangeMin, int rangeMax) {
+    public NumberSchema range(int rMin, int rMax) {
         this.range = true;
-        this.rangeMin = rangeMin;
-        this.rangeMax = rangeMax;
+        this.rangeMin = rMin;
+        this.rangeMax = rMax;
         return NumberSchema.this;
     }
     public boolean isValid(Object input) {
