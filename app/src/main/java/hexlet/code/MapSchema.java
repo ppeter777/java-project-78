@@ -25,12 +25,12 @@ public class MapSchema extends BaseSchema {
         } else if (input.size() != size && sizeCheck) {
             return false;
         } else if (!schemas.isEmpty()) {
-            boolean valid = true;
             var keys = schemas.keySet();
             for (var key : keys) {
-                valid = valid && schemas.get(key).isValid(input.get(key));
+                if (!schemas.get(key).isValid(input.get(key))) {
+                    return false;
+                }
             }
-            return valid;
         }
         return true;
     }
