@@ -6,3 +6,5 @@
 <a href="https://codeclimate.com/github/ppeter777/java-project-78/maintainability"><img src="https://api.codeclimate.com/v1/badges/44f40115831da34ea555/maintainability" /></a>
 
 <a href="https://codeclimate.com/github/ppeter777/java-project-78/test_coverage"><img src="https://api.codeclimate.com/v1/badges/44f40115831da34ea555/test_coverage" /></a>
+
+
