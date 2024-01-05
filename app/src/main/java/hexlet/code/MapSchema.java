@@ -1,16 +1,13 @@
 package hexlet.code;
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema {
     int size;
-
-//    boolean isNested;
-
-    Map<String, BaseSchema> schemas;
+    Map<String, BaseSchema> schemas = new HashMap<>();
     boolean sizeCheck;
-
     public MapSchema() {
     }
     public MapSchema required() {
@@ -39,7 +36,6 @@ public class MapSchema extends BaseSchema {
     }
     public MapSchema shape(Map<String, BaseSchema> schemas) {
         this.schemas = schemas;
-//        this.isNested = true;
         return MapSchema.this;
     }
 }
