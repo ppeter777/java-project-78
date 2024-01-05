@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -10,18 +11,20 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NestedTest {
-
     private static Validator vMap;
     private static MapSchema mSchema;
-
+    private static Map<String, BaseSchema> schemas;
     @BeforeAll
     public static void beforeAll() throws Exception {
         vMap = new Validator();
     }
-    @Test
-    public void stringNumberTest() throws Exception {
+    @BeforeEach
+    public void beforeEach() throws Exception {
         mSchema = vMap.map();
-        Map<String, BaseSchema> schemas = new HashMap<>();
+        schemas = new HashMap<>();
+    }
+    @Test
+    public void test1() throws Exception {
         schemas.put("name", vMap.string().required());
         schemas.put("age", vMap.number().positive());
         mSchema.shape(schemas);
@@ -47,9 +50,7 @@ public class NestedTest {
         assertFalse(mSchema.isValid(human4));
     }
     @Test
-    public void NumberTest() throws Exception {
-        mSchema = vMap.map();
-        Map<String, BaseSchema> schemas = new HashMap<>();
+    public void test2() throws Exception {
         schemas.put("name", vMap.string().required().minLength(3));
         schemas.put("nickname", vMap.string());
         schemas.put("yearOfBirth", vMap.number().range(1915, 2015));
@@ -69,7 +70,7 @@ public class NestedTest {
 
         Map<String, Object> human3 = new HashMap<>();
         human3.put("name", "Woland");
-        human3.put("nickname", "Lord of Darkness");
+        human3.put("nickname", "LordOfDarkness");
         human3.put("yearOfBirth", 1700);
         assertFalse(mSchema.isValid(human3));
 
