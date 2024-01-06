@@ -31,13 +31,13 @@ public class BaseSchema {
         }
         return true;
     }
-    public boolean isNullOrEmpty (Object input) {
+    public boolean isNullOrEmpty(Object input) {
         return input == null || input.toString().isEmpty();
     }
-    public boolean isInteger (Object input) {
+    public boolean isInteger(Object input) {
         return input instanceof Integer;
     }
-    public boolean isString (Object input) {
+    public boolean isString(Object input) {
         return input instanceof String;
     }
 }

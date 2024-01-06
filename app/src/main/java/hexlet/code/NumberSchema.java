@@ -28,19 +28,18 @@ public class NumberSchema extends BaseSchema {
             return false;
         } else if (!isInRange(input)) {
             return false;
-        } else return isPositive(input);
+        } else {
+            return isPositive(input);
+        }
     }
-    private boolean isInRange (Object input) {
+    private boolean isInRange(Object input) {
         if (range) {
             return (rangeMin <= (int) input && rangeMax >= (int) input);
         } else {
             return true;
         }
     }
-//    private boolean isInteger (Object input) {
-//        return input instanceof Integer;
-//    }
-    private boolean isPositive (Object input) {
+    private boolean isPositive(Object input) {
         if (positiveCheck) {
             return (int) input > 0;
         } else {
