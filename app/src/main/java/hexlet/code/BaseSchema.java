@@ -20,9 +20,9 @@ public class BaseSchema {
         return BaseSchema.this;
     }
     public boolean isValid(Object input) {
-        if (input == null || input.toString().isEmpty()) {
+        if (isNullOrEmpty(input)) {
             return !required;
-        } else if (!(input instanceof String)) {
+        } else if (!isString(input)) {
             return false;
         } else if (minLength > input.toString().length()) {
             return false;
@@ -30,5 +30,14 @@ public class BaseSchema {
             return input.toString().contains(contains);
         }
         return true;
+    }
+    public boolean isNullOrEmpty (Object input) {
+        return input == null || input.toString().isEmpty();
+    }
+    public boolean isInteger (Object input) {
+        return input instanceof Integer;
+    }
+    public boolean isString (Object input) {
+        return input instanceof String;
     }
 }
