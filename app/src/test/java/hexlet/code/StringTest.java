@@ -13,29 +13,28 @@ public class StringTest {
     private static StringSchema sSchema;
 
     @BeforeAll
-    public static void beforeAll() throws Exception {
+    public static void beforeAll() {
         vString = new Validator();
     }
     @BeforeEach
-    public void beforeEach() throws Exception {
+    public void beforeEach() {
         sSchema = vString.string();
     }
     @Test
-    public void emptyTest() throws Exception {
+    public void emptyTest() {
         assertTrue(sSchema.isValid(""));
         assertTrue(sSchema.isValid(null));
+        assertFalse(sSchema.isValid(5));
     }
     @Test
-    public void requiredTest() throws Exception {
+    public void requiredTest() {
         sSchema.required();
-        assertFalse(sSchema.isValid(""));
         assertFalse(sSchema.isValid(null));
         assertFalse(sSchema.isValid(5));
-        assertTrue(sSchema.isValid("what does the fox say"));
-        assertTrue(sSchema.isValid("hexlet"));
+        assertTrue(sSchema.isValid("some string"));
     }
     @Test
-    public void containsTest() throws Exception {
+    public void containsTest() {
         sSchema.required();
         assertTrue(sSchema.isValid("what does the fox say"));
         assertTrue(sSchema.contains("wh").isValid("what does the fox say"));

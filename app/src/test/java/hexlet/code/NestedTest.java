@@ -15,16 +15,16 @@ public class NestedTest {
     private static MapSchema mSchema;
     private static Map<String, BaseSchema> schemas;
     @BeforeAll
-    public static void beforeAll() throws Exception {
+    public static void beforeAll() {
         vMap = new Validator();
     }
     @BeforeEach
-    public void beforeEach() throws Exception {
+    public void beforeEach() {
         mSchema = vMap.map();
         schemas = new HashMap<>();
     }
     @Test
-    public void test1() throws Exception {
+    public void test1() {
         schemas.put("name", vMap.string().required());
         schemas.put("age", vMap.number().positive());
         mSchema.shape(schemas);
@@ -50,7 +50,7 @@ public class NestedTest {
         assertFalse(mSchema.isValid(human4));
     }
     @Test
-    public void test2() throws Exception {
+    public void test2() {
         schemas.put("name", vMap.string().required().minLength(3));
         schemas.put("nickname", vMap.string());
         schemas.put("yearOfBirth", vMap.number().range(1915, 2015));

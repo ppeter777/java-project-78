@@ -12,21 +12,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MapTest {
     private static Validator vMap;
-    private static MapSchema mSchema;
+    private static MapSchema<?, ?> mSchema;
     @BeforeAll
-    public static void beforeAll() throws Exception {
+    public static void beforeAll() {
         vMap = new Validator();
     }
     @BeforeEach
-    public void beforeEach() throws Exception {
+    public void beforeEach() {
         mSchema = vMap.map();
     }
     @Test
-    public void emptyTest() throws Exception {
+    public void emptyTest()  {
         assertTrue(mSchema.isValid(null));
     }
     @Test
-    public void requiredTest() throws Exception {
+    public void requiredTest() {
         mSchema.required();
         assertFalse(mSchema.isValid(null));
         assertTrue(mSchema.isValid(new HashMap<>()));
@@ -35,7 +35,7 @@ public class MapTest {
         assertTrue(mSchema.isValid(data));
     }
     @Test
-    public void sizeTest() throws Exception {
+    public void sizeTest()  {
         mSchema.required().sizeof(2);
         Map<String, String> data = new HashMap<>();
         data.put("key1", "value1");
