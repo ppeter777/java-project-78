@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class MapSchema<K, V> extends BaseSchema {
+public final class MapSchema<K, V> extends BaseSchema {
     Map<K, BaseSchema> schemas = new HashMap<>();
 
     public MapSchema() {

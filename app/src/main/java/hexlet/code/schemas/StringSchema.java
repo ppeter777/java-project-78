@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import hexlet.code.Check;
 
-public class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema {
     public StringSchema() {
         checkedClass = String.class;
     }
