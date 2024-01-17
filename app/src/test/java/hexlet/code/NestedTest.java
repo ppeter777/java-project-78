@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class NestedTest {
+public final class NestedTest {
     private static Validator vMap;
     private static MapSchema mSchema;
     private static Map<String, BaseSchema> schemas;

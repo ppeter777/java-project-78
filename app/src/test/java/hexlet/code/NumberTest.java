@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class NumberTest {
+public final class NumberTest {
     private static Validator vNumber;
     private static NumberSchema nSchema;
     @BeforeAll
