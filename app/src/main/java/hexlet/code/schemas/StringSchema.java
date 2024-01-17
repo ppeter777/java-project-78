@@ -4,7 +4,7 @@ import hexlet.code.Check;
 
 public final class StringSchema extends BaseSchema {
     public StringSchema() {
-        checkedClass = String.class;
+        setCheckedClass(String.class);
     }
     public StringSchema contains(String checkString) {
         Check<String> isContaining = x -> x.contains(checkString);

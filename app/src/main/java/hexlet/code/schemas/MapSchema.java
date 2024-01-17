@@ -10,7 +10,7 @@ public final class MapSchema<K, V> extends BaseSchema {
     Map<K, BaseSchema> schemas = new HashMap<>();
 
     public MapSchema() {
-        checkedClass = HashMap.class;
+        setCheckedClass(HashMap.class);
     }
 
     public MapSchema<K, V> required() {

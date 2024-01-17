@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public final class NumberSchema extends BaseSchema {
     public NumberSchema() {
-        checkedClass = Integer.class;
+        setCheckedClass(Integer.class);
     }
     public NumberSchema positive() {
         Check<Integer> isPositiveOrNull = x -> x == null || x > 0;
