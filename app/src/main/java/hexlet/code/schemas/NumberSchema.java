@@ -10,17 +10,17 @@ public final class NumberSchema extends BaseSchema {
     }
     public NumberSchema positive() {
         Check<Integer> isPositiveOrNull = x -> x == null || x > 0;
-        checks.add(isPositiveOrNull);
+        addCheck(isPositiveOrNull);
         return NumberSchema.this;
     }
     public NumberSchema range(int rMin, int rMax) {
         Check<Integer> isInRangeOrNull = x -> x == null || (x >= rMin && x <= rMax);
-        checks.add(isInRangeOrNull);
+        addCheck(isInRangeOrNull);
         return NumberSchema.this;
     }
     public NumberSchema required() {
         Check<Object> isRequired = Objects::nonNull;
-        checks.add(isRequired);
+        addCheck(isRequired);
         return NumberSchema.this;
     }
 }

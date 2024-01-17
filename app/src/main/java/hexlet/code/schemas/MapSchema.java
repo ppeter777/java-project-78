@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public final class MapSchema<K, V> extends BaseSchema {
-    Map<K, BaseSchema> schemas = new HashMap<>();
+    private Map<K, BaseSchema> schemas = new HashMap<>();
 
     public MapSchema() {
         setCheckedClass(HashMap.class);
@@ -15,13 +15,13 @@ public final class MapSchema<K, V> extends BaseSchema {
 
     public MapSchema<K, V> required() {
         Check<Map<?, ?>> isRequired = Objects::nonNull;
-        checks.add(isRequired);
+        addCheck(isRequired);
         return MapSchema.this;
     }
 
     public MapSchema<K, V> sizeof(int inputSize) {
         Check<Map<?, ?>> isSizeMatch = x -> x.size() == inputSize;
-        checks.add(isSizeMatch);
+        addCheck(isSizeMatch);
         return MapSchema.this;
     }
     public MapSchema<K, V> shape(Map<K, BaseSchema> inputSchemas) {
@@ -30,7 +30,7 @@ public final class MapSchema<K, V> extends BaseSchema {
     }
     public boolean isValid(Map<K, V> input) {
         if (schemas.isEmpty()) {
-            return checks.stream()
+            return getChecks().stream()
                     .allMatch(x -> x.test(input));
         }
         var keys = schemas.keySet();
