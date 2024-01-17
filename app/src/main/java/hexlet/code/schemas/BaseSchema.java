@@ -1,24 +1,22 @@
 package hexlet.code.schemas;
-
 import hexlet.code.Check;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseSchema {
-    public final void addCheck(Check check) {
-        checks.add(check);
-    }
-
-    public List<Check> getChecks() {
-        return checks;
-    }
-
     private List<Check> checks = new ArrayList<>();
-
     private Class<?> checkedClass;
 
     public BaseSchema() {
+    }
+
+    public final void addCheck(Check check) {
+        checks.add(check);
+
+    }
+    public final List<Check> getChecks() {
+        return checks;
     }
 
     public final boolean isValid(Object input) {
@@ -27,8 +25,9 @@ public class BaseSchema {
         }
         return checks.stream()
                 .allMatch(x -> x.test(input));
+
     }
-    public final void setCheckedClass(Class<?> checkedClass) {
-        this.checkedClass = checkedClass;
+    public final void setCheckedClass(Class<?> checkedCl) {
+        this.checkedClass = checkedCl;
     }
 }

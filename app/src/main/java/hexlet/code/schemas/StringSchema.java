@@ -1,5 +1,4 @@
 package hexlet.code.schemas;
-
 import hexlet.code.Check;
 
 public final class StringSchema extends BaseSchema {
