@@ -15,6 +15,10 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+test {
+    useJUnitPlatform()
+}
+
 checkstyle {
     toolVersion = '10.11.0'
 }
