@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.schemas;
+
+import hexlet.code.Check;
 
 public class StringSchema extends BaseSchema {
     public StringSchema() {
