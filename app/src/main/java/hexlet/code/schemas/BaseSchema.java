@@ -1,21 +1,21 @@
 package hexlet.code.schemas;
-import hexlet.code.Check;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class BaseSchema {
-    private List<Check> checks = new ArrayList<>();
+    private List<Predicate> checks = new ArrayList<>();
     private Class<?> checkedClass;
 
     public BaseSchema() {
     }
 
-    public final void addCheck(Check check) {
+    public final void addCheck(Predicate check) {
         checks.add(check);
 
     }
-    public final List<Check> getChecks() {
+    public final List<Predicate> getChecks() {
         return checks;
     }
 

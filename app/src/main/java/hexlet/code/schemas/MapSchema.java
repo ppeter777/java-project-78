@@ -1,9 +1,9 @@
 package hexlet.code.schemas;
-import hexlet.code.Check;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public final class MapSchema<K, V> extends BaseSchema {
     private Map<K, BaseSchema> schemas = new HashMap<>();
@@ -13,13 +13,13 @@ public final class MapSchema<K, V> extends BaseSchema {
     }
 
     public MapSchema<K, V> required() {
-        Check<Map<?, ?>> isRequired = Objects::nonNull;
+        Predicate<Map<?, ?>> isRequired = Objects::nonNull;
         addCheck(isRequired);
         return MapSchema.this;
     }
 
     public MapSchema<K, V> sizeof(int inputSize) {
-        Check<Map<?, ?>> isSizeMatch = x -> x.size() == inputSize;
+        Predicate<Map<?, ?>> isSizeMatch = x -> x.size() == inputSize;
         addCheck(isSizeMatch);
         return MapSchema.this;
     }
