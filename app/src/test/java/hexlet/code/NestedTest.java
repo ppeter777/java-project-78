@@ -42,7 +42,7 @@ public final class NestedTest {
         assertTrue(mSchema.isValid(human2));
 
         Map<String, Object> human3 = new HashMap<>();
-        human3.put("name", "");
+        human3.put("name", 777);
         human3.put("age", null);
         assertFalse(mSchema.isValid(human3));
 

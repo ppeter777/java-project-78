@@ -25,6 +25,7 @@ public final class MapTest {
     @Test
     public void emptyTest()  {
         assertTrue(mSchema.isValid(null));
+        assertFalse(mSchema.isValid("Map"));
     }
     @Test
     public void requiredTest() {
