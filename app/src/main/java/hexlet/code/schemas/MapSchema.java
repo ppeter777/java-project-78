@@ -8,7 +8,7 @@ public final class MapSchema<K, V> extends BaseSchema {
     private Map<K, BaseSchema> schemas = new HashMap<>();
 
     public MapSchema() {
-        Predicate<Object> isRequired = x -> x instanceof Map<?,?> || (!isRequired() && x == null);
+        Predicate<Object> isRequired = x -> x instanceof Map<?, ?> || (!isRequired() && x == null);
         addCheck(isRequired);
     }
 
