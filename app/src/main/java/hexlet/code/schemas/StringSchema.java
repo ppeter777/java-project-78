@@ -4,7 +4,8 @@ import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema {
     public StringSchema() {
-        setCheckedClass(String.class);
+        Predicate<Object> isRequired = x -> x instanceof String || (!isRequired() && x == null);
+        addCheck(isRequired);
     }
     public StringSchema contains(String checkString) {
         Predicate<String> isContaining = x -> x.contains(checkString);
@@ -17,8 +18,7 @@ public final class StringSchema extends BaseSchema {
         return StringSchema.this;
     }
     public StringSchema required() {
-        Predicate<String> isRequired = x -> x != null && !x.isEmpty();
-        addCheck(isRequired);
+        setRequired(true);
         return StringSchema.this;
     }
 }

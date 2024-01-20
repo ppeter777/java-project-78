@@ -1,11 +1,11 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public final class NumberSchema extends BaseSchema {
     public NumberSchema() {
-        setCheckedClass(Integer.class);
+        Predicate<Object> isRequired = x -> x instanceof Integer || (!isRequired() && x == null);
+        addCheck(isRequired);
     }
     public NumberSchema positive() {
         Predicate<Integer> isPositiveOrNull = x -> x == null || x > 0;
@@ -18,8 +18,7 @@ public final class NumberSchema extends BaseSchema {
         return NumberSchema.this;
     }
     public NumberSchema required() {
-        Predicate<Object> isRequired = Objects::nonNull;
-        addCheck(isRequired);
+        setRequired(true);
         return NumberSchema.this;
     }
 }

@@ -2,19 +2,18 @@ package hexlet.code.schemas;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public final class MapSchema<K, V> extends BaseSchema {
     private Map<K, BaseSchema> schemas = new HashMap<>();
 
     public MapSchema() {
-        setCheckedClass(HashMap.class);
+        Predicate<Object> isRequired = x -> x instanceof Map<?,?> || (!isRequired() && x == null);
+        addCheck(isRequired);
     }
 
     public MapSchema<K, V> required() {
-        Predicate<Map<?, ?>> isRequired = Objects::nonNull;
-        addCheck(isRequired);
+        setRequired(true);
         return MapSchema.this;
     }
 
@@ -23,21 +22,15 @@ public final class MapSchema<K, V> extends BaseSchema {
         addCheck(isSizeMatch);
         return MapSchema.this;
     }
+
     public MapSchema<K, V> shape(Map<K, BaseSchema> inputSchemas) {
         schemas = inputSchemas;
-        return MapSchema.this;
-    }
-    public boolean isValid(Map<K, V> input) {
-        if (schemas.isEmpty()) {
-            return getChecks().stream()
-                    .allMatch(x -> x.test(input));
-        }
         var keys = schemas.keySet();
         for (var key : keys) {
-            if (!schemas.get(key).isValid(input.get(key))) {
-                return false;
-            }
+            var schema = inputSchemas.get(key);
+            Predicate<Map<?, ?>> schemaCheck = x -> schema.isValid(x.get(key));
+            addCheck(schemaCheck);
         }
-        return true;
+        return MapSchema.this;
     }
 }
