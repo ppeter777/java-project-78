@@ -31,6 +31,7 @@ public final class StringTest {
     public void requiredTest() {
         sSchema.required();
         assertFalse(sSchema.isValid(null));
+        assertFalse(sSchema.isValid(""));
         assertFalse(sSchema.isValid(5));
         assertTrue(sSchema.isValid("some string"));
     }
