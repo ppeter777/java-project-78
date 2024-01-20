@@ -4,8 +4,8 @@ import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema {
     public StringSchema() {
-        Predicate<Object> isRequired = x -> (x instanceof String && !((String) x).isEmpty()) ||
-                (!isRequired() && x == null);
+        Predicate<Object> isRequired = x -> (x instanceof String && !((String) x).isEmpty())
+                || (!isRequired() && x == null);
         addCheck(isRequired);
     }
     public StringSchema contains(String checkString) {
