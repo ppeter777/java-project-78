@@ -9,11 +9,11 @@ public abstract class BaseSchema {
 
     private boolean isRequired;
 
-    public void setRequired(boolean required) {
+    public final void setRequired(boolean required) {
         isRequired = required;
     }
 
-    public boolean isRequired() {
+    public final boolean isRequired() {
         return isRequired;
     }
 
