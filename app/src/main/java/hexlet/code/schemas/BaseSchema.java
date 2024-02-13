@@ -6,7 +6,6 @@ import java.util.function.Predicate;
 
 public abstract class BaseSchema {
     private List<Predicate> checks = new ArrayList<>();
-
     private boolean isRequired;
 
     public final void setRequired(boolean required) {
