@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
-public final class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema<String> {
     public StringSchema() {
         addCheck((Predicate<Object>) x -> x instanceof String && !x.equals("")
                 || !isRequired() && (x == null || x.equals("")));

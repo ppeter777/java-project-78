@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public final class MapTest {
     private static Validator vMap;
-    private static MapSchema<?, ?> mSchema;
+    private static MapSchema mSchema;
     @BeforeAll
     public static void beforeAll() {
         vMap = new Validator();
@@ -25,7 +25,6 @@ public final class MapTest {
     @Test
     public void emptyTest()  {
         assertTrue(mSchema.isValid(null));
-        assertFalse(mSchema.isValid("Map"));
     }
     @Test
     public void requiredTest() {

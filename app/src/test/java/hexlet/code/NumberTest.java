@@ -22,7 +22,6 @@ public final class NumberTest {
     @Test
     public void emptyTest() {
         assertTrue(nSchema.isValid(null));
-        assertFalse(nSchema.isValid("5"));
         assertTrue(nSchema.isValid(5));
         assertTrue(nSchema.positive().isValid(null));
     }
@@ -31,7 +30,6 @@ public final class NumberTest {
         assertTrue(nSchema.isValid(null));
         nSchema.required();
         assertFalse(nSchema.isValid(null));
-        assertFalse(nSchema.isValid("5"));
         assertTrue(nSchema.isValid(10));
         assertTrue(nSchema.isValid(-10));
         assertTrue(nSchema.isValid(0));
@@ -51,7 +49,6 @@ public final class NumberTest {
     public void rangeTest() {
         nSchema.range(5, 10);
         assertTrue(nSchema.isValid(null));
-        assertFalse(nSchema.isValid("5"));
         assertTrue(nSchema.isValid(5));
         assertTrue(nSchema.isValid(10));
         assertFalse(nSchema.isValid(4));
@@ -65,7 +62,6 @@ public final class NumberTest {
     public void rangePositiveTest() {
         nSchema.positive().range(-5, 10);
         assertTrue(nSchema.isValid(null));
-        assertFalse(nSchema.isValid("5"));
         assertTrue(nSchema.isValid(5));
         assertFalse(nSchema.isValid(-2));
         assertTrue(nSchema.isValid(10));

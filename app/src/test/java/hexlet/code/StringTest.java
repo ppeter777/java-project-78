@@ -25,14 +25,12 @@ public final class StringTest {
     public void emptyTest() {
         assertTrue(sSchema.isValid(""));
         assertTrue(sSchema.isValid(null));
-        assertFalse(sSchema.isValid(5));
     }
     @Test
     public void requiredTest() {
         sSchema.required();
         assertFalse(sSchema.isValid(null));
         assertFalse(sSchema.isValid(""));
-        assertFalse(sSchema.isValid(5));
         assertTrue(sSchema.isValid("some string"));
     }
     @Test

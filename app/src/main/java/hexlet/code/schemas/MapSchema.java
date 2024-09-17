@@ -3,23 +3,24 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public final class MapSchema<K, V> extends BaseSchema {
+public final class MapSchema extends BaseSchema<Map<String,String>> {
 
     public MapSchema() {
-        addCheck((Predicate<Object>) x -> x instanceof Map<?, ?> || (!isRequired() && x == null));
+//        addCheck((Predicate<Object>) x -> x instanceof Map<?, ?> || (!isRequired() && x == null));
+        addCheck((Predicate<Object>) x -> x instanceof Map<?, ?>);
     }
 
-    public MapSchema<K, V> required() {
+    public MapSchema required() {
         setRequired(true);
         return MapSchema.this;
     }
 
-    public MapSchema<K, V> sizeof(int inputSize) {
+    public MapSchema sizeof(int inputSize) {
         addCheck((Predicate<Map<?, ?>>) x -> x.size() == inputSize);
         return MapSchema.this;
     }
 
-    public MapSchema<K, V> shape(Map<K, BaseSchema> inputSchemas) {
+    public MapSchema shape(Map<String, BaseSchema> inputSchemas) {
         var keys = inputSchemas.keySet();
         for (var key : keys) {
             var schema = inputSchemas.get(key);
