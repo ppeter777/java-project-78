@@ -16,7 +16,7 @@ public abstract class BaseSchema<T> {
         return isRequired;
     }
 
-    public final void addCheck(Predicate check) {
+    public final void addCheck(Predicate<T> check) {
         checks.add(check);
     }
 

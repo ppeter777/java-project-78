@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 public final class NumberSchema extends BaseSchema<Integer> {
     public NumberSchema() {
-        addCheck((Predicate<Object>) x -> x instanceof Integer || (!isRequired() && x == null));
+        addCheck((Predicate<Integer>) x -> x instanceof Integer || (!isRequired() && x == null));
     }
 
     public NumberSchema positive() {
