@@ -4,11 +4,11 @@ import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema<String> {
     public StringSchema() {
-        addCheck((Predicate<String>) x -> x instanceof String && !x.equals("")
+        addCheck(x -> x instanceof String && !x.equals("")
                 || !isRequired() && (x == null || x.equals("")));
     }
     public StringSchema contains(String checkString) {
-        addCheck((Predicate<String>) x -> x.contains(checkString));
+        addCheck(x -> x.contains(checkString));
         return StringSchema.this;
     }
 
