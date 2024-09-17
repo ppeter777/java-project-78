@@ -2,6 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema<T> {
@@ -21,6 +22,9 @@ public abstract class BaseSchema<T> {
     }
 
     public final boolean isValid(T input) {
+        if (Objects.equals(input, null)) {
+            return !isRequired;
+        }
         return checks.stream()
                 .allMatch(x -> x.test(input));
     }

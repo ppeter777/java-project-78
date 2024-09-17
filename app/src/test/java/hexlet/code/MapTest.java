@@ -12,20 +12,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public final class MapTest {
     private static Validator vMap;
     private static MapSchema mSchema;
+
     @BeforeAll
     public static void beforeAll() {
         vMap = new Validator();
     }
+
     @BeforeEach
     public void beforeEach() {
         mSchema = vMap.map();
     }
-//    @Test
-//    public void emptyTest()  {
-//        assertTrue(mSchema.isValid(null));
-//    }
+    @Test
+    public void emptyTest()  {
+        assertTrue(mSchema.isValid(null));
+    }
+
     @Test
     public void requiredTest() {
+        assertTrue(mSchema.isValid(null));
         mSchema.required();
         assertFalse(mSchema.isValid(null));
         assertTrue(mSchema.isValid(new HashMap<>()));

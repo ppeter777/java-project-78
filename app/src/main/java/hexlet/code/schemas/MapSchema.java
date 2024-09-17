@@ -5,10 +5,10 @@ import java.util.function.Predicate;
 
 public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
-    public MapSchema() {
+//    public MapSchema() {
 //        addCheck((Predicate<Object>) x -> x instanceof Map<?, ?> || (!isRequired() && x == null));
-        addCheck((Predicate<Map<?, ?>>) x -> x instanceof Map<?, ?>);
-    }
+//        addCheck((Predicate<Map<?, ?>>) x -> x instanceof Map<?, ?>);
+//    }
 
     public MapSchema required() {
         setRequired(true);
