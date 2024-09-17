@@ -4,10 +4,8 @@ import hexlet.code.schemas.MapSchema;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,9 +33,9 @@ public final class MapTest {
         data.put("key1", "value1");
         assertTrue(mSchema.isValid(data));
     }
-    
+
     @Test
-    public void sizeTest()  {
+    public void sizeTest() {
         mSchema.required().sizeof(2);
         Map<String, String> data = new HashMap<>();
         data.put("key1", "value1");
