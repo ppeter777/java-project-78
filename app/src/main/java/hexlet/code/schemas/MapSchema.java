@@ -15,7 +15,7 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
         return MapSchema.this;
     }
 
-    public <T> MapSchema shape(Map<String, BaseSchema<T>> inputSchemas) {
+    public MapSchema shape(Map<String, BaseSchema> inputSchemas) {
         var keys = inputSchemas.keySet();
         for (var key : keys) {
             var schema = inputSchemas.get(key);

@@ -21,7 +21,7 @@ public abstract class BaseSchema<T> {
         checks.add(check);
     }
 
-    public final boolean isValid(Object input) {
+    public final boolean isValid(T input) {
         if (Objects.equals(input, null)) {
             return !isRequired;
         }

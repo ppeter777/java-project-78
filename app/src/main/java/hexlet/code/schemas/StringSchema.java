@@ -13,7 +13,7 @@ public final class StringSchema extends BaseSchema<String> {
     }
 
     public StringSchema minLength(Integer mLength) {
-        addCheck((Predicate<String>) x -> x.length() >= mLength);
+        addCheck(x -> x.length() >= mLength);
         return StringSchema.this;
     }
 
