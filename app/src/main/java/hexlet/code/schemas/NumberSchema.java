@@ -1,7 +1,5 @@
 package hexlet.code.schemas;
 
-import java.util.function.Predicate;
-
 public final class NumberSchema extends BaseSchema<Integer> {
     public NumberSchema() {
         addCheck(x -> x instanceof Integer || (!isRequired() && x == null));
