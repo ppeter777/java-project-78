@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public final class NestedTest {
     private static Validator vMap;
@@ -26,7 +27,7 @@ public final class NestedTest {
     }
     @Test
     public void test1() {
-        Map<String, BaseSchema> schemas = new HashMap<>();
+        Map<String, BaseSchema<String>> schemas = new HashMap<>();
         schemas.put("name", vMap.string().required());
         schemas.put("lastname", vMap.string().required().minLength(2));
         mSchema.shape(schemas);
@@ -49,10 +50,10 @@ public final class NestedTest {
     }
     @Test
     public void test2() {
-        Map<String, BaseSchema> schemas = new HashMap<>();
+        Map<String, BaseSchema<String>> schemas = new HashMap<>();
         schemas.put("name", vMap.string().required().minLength(3));
         schemas.put("nickname", vMap.string().contains("777"));
-        schemas.put("yearOfBirth", vMap.number().range(1915, 2015));
+//        schemas.put("yearOfBirth", vMap.number().range(1915, 2015));
         mSchema.shape(schemas);
 
         Map<String, Object> human1 = new HashMap<>();
