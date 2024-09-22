@@ -4,12 +4,10 @@ import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public final class StringTest {
-
     private static Validator vString;
     private static StringSchema sSchema;
 
@@ -17,15 +15,18 @@ public final class StringTest {
     public static void beforeAll() {
         vString = new Validator();
     }
+
     @BeforeEach
     public void beforeEach() {
         sSchema = vString.string();
     }
+
     @Test
     public void emptyTest() {
         assertTrue(sSchema.isValid(""));
         assertTrue(sSchema.isValid(null));
     }
+
     @Test
     public void requiredTest() {
         sSchema.required();
@@ -33,6 +34,7 @@ public final class StringTest {
         assertFalse(sSchema.isValid(""));
         assertTrue(sSchema.isValid("some string"));
     }
+
     @Test
     public void containsTest() {
         sSchema.required();

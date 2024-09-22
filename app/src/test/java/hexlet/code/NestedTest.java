@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public final class NestedTest {
     private static Validator vMap;
     private static MapSchema mSchema;
-//    private static Map<String, BaseSchema> schemas;
+
     @BeforeAll
     public static void beforeAll() {
         vMap = new Validator();
@@ -23,6 +23,7 @@ public final class NestedTest {
     public void beforeEach() {
         mSchema = vMap.map();
     }
+
     @Test
     public void test1() {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
@@ -51,7 +52,6 @@ public final class NestedTest {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
         schemas.put("name", vMap.string().required().minLength(3));
         schemas.put("nickname", vMap.string().contains("777"));
-//        schemas.put("yearOfBirth", vMap.number().range(1915, 2015));
         mSchema.shape(schemas);
 
         Map<String, Object> human1 = new HashMap<>();

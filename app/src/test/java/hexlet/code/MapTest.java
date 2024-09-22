@@ -22,6 +22,7 @@ public final class MapTest {
     public void beforeEach() {
         mSchema = vMap.map();
     }
+
     @Test
     public void emptyTest()  {
         assertTrue(mSchema.isValid(null));
