@@ -1,3 +1,14 @@
+### Описание
+Валидатор данных – библиотека, с помощью которой можно проверять корректность любых данных. Библиотека  удобные средства для создания схем валидации, которые помогают проверять данные на соответствие заданным требованиям.
+
+### Установка
+    git clone git@github.com:ppeter777/java-project-78.git
+    cd java-project-78/app
+    make install
+
+### Запуск
+    make run
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/ppeter777/java-project-78/workflows/hexlet-check/badge.svg)](https://github.com/ppeter777/java-project-78/actions)
 
@@ -7,7 +18,6 @@
 
 <a href="https://codeclimate.com/github/ppeter777/java-project-78/test_coverage"><img src="https://api.codeclimate.com/v1/badges/44f40115831da34ea555/test_coverage" /></a>
 
-### Описание
-Валидатор данных – библиотека, с помощью которой можно проверять корректность любых данных.
+
 
 
