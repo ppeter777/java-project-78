@@ -22,7 +22,6 @@ public final class NestedTest {
     @BeforeEach
     public void beforeEach() {
         mSchema = vMap.map();
-//        schemas = new HashMap<>();
     }
     @Test
     public void test1() {

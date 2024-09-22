@@ -25,6 +25,12 @@ public final class StringTest {
     public void emptyTest() {
         assertTrue(sSchema.isValid(""));
         assertTrue(sSchema.isValid(null));
+        sSchema.required();
+        assertFalse(sSchema.isValid(null));
+        assertFalse(sSchema.isValid(""));
+        assertFalse(sSchema.minLength(9).isValid("Hexlet"));
+        assertTrue(sSchema.minLength(5).isValid("Hexlet"));
+        assertFalse(sSchema.minLength(5).minLength(9).isValid("Hexlet"));
     }
     @Test
     public void requiredTest() {

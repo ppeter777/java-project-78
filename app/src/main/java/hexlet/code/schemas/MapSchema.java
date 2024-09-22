@@ -11,7 +11,7 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
     }
 
     public MapSchema sizeof(int inputSize) {
-        addCheck(x -> x.size() == inputSize);
+        addCheck("sizeof", x -> x.size() == inputSize);
         return MapSchema.this;
     }
 
@@ -19,7 +19,7 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
         var keys = inputSchemas.keySet();
         for (var key : keys) {
             var schema = inputSchemas.get(key);
-            addCheck(x -> schema.isValid((T) x.get(key)));
+            addCheck("shape", x -> schema.isValid((T) x.get(key)));
         }
         return MapSchema.this;
     }
