@@ -4,9 +4,14 @@ import java.util.Map;
 
 public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
+//    public MapSchema required() {
+//        isRequired = true;
+//        setRequired(true);
+//        return MapSchema.this;
+//    }
 
     public MapSchema required() {
-        setRequired(true);
+        isRequired = true;
         return MapSchema.this;
     }
 

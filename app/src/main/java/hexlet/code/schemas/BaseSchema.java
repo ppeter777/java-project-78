@@ -6,8 +6,8 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema<T> {
-    private Map<String, Predicate<T>> checks = new LinkedHashMap<>();
-    private boolean isRequired;
+    protected Map<String, Predicate<T>> checks = new LinkedHashMap<>();
+    protected boolean isRequired;
 
     public final void setRequired(boolean required) {
         isRequired = required;

@@ -11,17 +11,12 @@ public final class StringSchema extends BaseSchema<String> {
     }
 
     public StringSchema minLength(Integer mLength) {
-//        var checks = this.getChecks();
-//        Predicate<String> check = x -> x.length() >= mLength;
-//        if (checks.contains(check)) {
-//            addCheck(x -> x.length() >= mLength);
-//        }
         addCheck("length", x -> x.length() >= mLength);
         return StringSchema.this;
     }
 
     public StringSchema required() {
-        setRequired(true);
+        isRequired = true;
         return StringSchema.this;
     }
 }
