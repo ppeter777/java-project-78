@@ -9,14 +9,6 @@ public abstract class BaseSchema<T> {
     protected Map<String, Predicate<T>> checks = new LinkedHashMap<>();
     protected boolean isRequired;
 
-    public final void setRequired(boolean required) {
-        isRequired = required;
-    }
-
-    public final boolean isRequired() {
-        return isRequired;
-    }
-
     public final void addCheck(String checkName, Predicate<T> check) {
         checks.put(checkName, check);
     }
