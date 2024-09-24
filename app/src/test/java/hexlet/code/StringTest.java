@@ -23,8 +23,9 @@ public final class StringTest {
 
     @Test
     public void emptyTest() {
-        assertTrue(sSchema.isValid(""));
         assertTrue(sSchema.isValid(null));
+        assertTrue(sSchema.isValid(""));
+        assertTrue(sSchema.isValid("some string"));
     }
 
     @Test
