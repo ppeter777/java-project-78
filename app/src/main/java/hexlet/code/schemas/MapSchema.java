@@ -16,9 +16,8 @@ public final class MapSchema<T> extends BaseSchema<Map<?, ?>> {
     }
 
     public MapSchema<T> shape(Map<String, BaseSchema<T>> inputSchemas) {
-        var entrySet = inputSchemas.entrySet();
         Predicate<Map<?, ?>> shapeCheck = x -> {
-            for (var entry : entrySet) {
+            for (var entry : inputSchemas.entrySet()) {
                 if (!entry.getValue().isValid((T) x.get(entry.getKey()))) {
                     return false;
                 }
@@ -28,19 +27,4 @@ public final class MapSchema<T> extends BaseSchema<Map<?, ?>> {
         addCheck("shapeCheck", shapeCheck);
         return this;
     }
-
-//    public MapSchema shape(Map<String, BaseSchema<T>> schemas) {
-//        addCheck(
-//                "shape",
-//                map -> {
-//                    for (Map.Entry<String, BaseSchema<T>> entry : schemas.entrySet()) {
-//                        if (!entry.getValue().isValid(map.get(entry.getKey()))) {
-//                            return false;
-//                        }
-//                    }
-//                    return true;
-//                }
-//        );
-//        return this;
-//    }
 }

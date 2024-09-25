@@ -49,22 +49,23 @@ public final class NestedTest {
     }
     @Test
     public void test2() {
-        Map<String, BaseSchema<String>> schemas = new HashMap<>();
+        Map<String, BaseSchema> schemas = new HashMap<>();
         schemas.put("name", vMap.string().required().minLength(3));
         schemas.put("nickname", vMap.string().contains("777"));
+        schemas.put("yearOfBirth", vMap.number().range(1920, 2024));
         mSchema.shape(schemas);
 
-//        Map<String, Object> human1 = new HashMap<>();
-//        human1.put("name", "Ivan");
-//        human1.put("nickname", "rocky777");
-////        human1.put("yearOfBirth", 1990);
-//        assertTrue(mSchema.isValid(human1));
+        Map<String, Object> human1 = new HashMap<>();
+        human1.put("name", "Ivan");
+        human1.put("nickname", "rocky777");
+        human1.put("yearOfBirth", 1990);
+        assertTrue(mSchema.isValid(human1));
 
-//        Map<String, Object> human2 = new HashMap<>();
-//        human2.put("name", "Boris");
-//        human2.put("nickname", null);
-//        human2.put("yearOfBirth", 1950);
-//        assertTrue(mSchema.isValid(human2));
+        Map<String, Object> human2 = new HashMap<>();
+        human2.put("name", "Boris");
+        human2.put("nickname", null);
+        human2.put("yearOfBirth", 1950);
+        assertTrue(mSchema.isValid(human2));
 
         Map<String, Object> human3 = new HashMap<>();
         human3.put("name", "Woland");
@@ -75,7 +76,7 @@ public final class NestedTest {
         Map<String, Object> human4 = new HashMap<>();
         human4.put("name", "Ed");
         human4.put("nickname", "sleepy");
-        human4.put("yearOfBirth", 1915);
+        human4.put("yearOfBirth", 2000);
         assertFalse(mSchema.isValid(human4));
     }
 }
