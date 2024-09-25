@@ -27,14 +27,14 @@ public final class NestedTest {
     @Test
     public void test1() {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
-        schemas.put("name", vMap.string().required());
-        schemas.put("lastname", vMap.string().required().minLength(2));
+        schemas.put("firstName", vMap.string().required());
+        schemas.put("lastName", vMap.string().required().minLength(2));
         mSchema.shape(schemas);
 
         Map<String, String> human1 = new HashMap<>();
         human1.put("firstName", "John");
         human1.put("lastName", "Smith");
-        assertFalse(mSchema.isValid(human1));
+        assertTrue(mSchema.isValid(human1));
 
         Map<String, String> human2 = new HashMap<>();
         human2.put("firstName", "John");
