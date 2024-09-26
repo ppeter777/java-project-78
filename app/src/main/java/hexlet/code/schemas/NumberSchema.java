@@ -2,6 +2,10 @@ package hexlet.code.schemas;
 
 public final class NumberSchema extends BaseSchema<Integer> {
 
+    public NumberSchema() {
+        addCheck("required", x -> x != null);
+    }
+
     public NumberSchema positive() {
         addCheck("positive", x -> x > 0);
         return this;

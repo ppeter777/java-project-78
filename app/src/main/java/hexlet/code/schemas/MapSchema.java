@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public final class MapSchema<T> extends BaseSchema<Map<?, ?>> {
+    public MapSchema() {
+        addCheck("required", x -> x != null);
+    }
 
     public MapSchema<T> required() {
         isRequired = true;

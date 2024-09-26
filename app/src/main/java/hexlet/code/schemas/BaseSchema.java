@@ -13,8 +13,11 @@ public abstract class BaseSchema<T> {
     }
 
     public final boolean isValid(T input) {
-        if (input == null) {
-            return !isRequired;
+        if (!isRequired) {
+            var validate = checks.get("required");
+            if (!validate.test(input)) {
+                return true;
+            }
         }
         return checks.values().stream()
                 .allMatch(x -> x.test(input));
